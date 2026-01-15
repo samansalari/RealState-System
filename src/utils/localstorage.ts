@@ -1,14 +1,1 @@
-export const setLocalStorage = <T>(name: string, items: T[]): void => {
-   localStorage.setItem(name, JSON.stringify(items));
-};
-
-
-export const getLocalStorage = <T>(name: string): T[] => {
-   const data = localStorage.getItem(name);
-   if (data) {
-      return JSON.parse(data) as T[];
-   } else {
-      localStorage.setItem(name, JSON.stringify([]));
-      return [] as T[];
-   }
-};
+export const setLocalStorage = <T>(name: string, items: T[]): void => {\n  if (typeof window !== 'undefined') {\n    localStorage.setItem(name, JSON.stringify(items));\n  }\n};\n\nexport const getLocalStorage = <T>(name: string): T[] => {\n  if (typeof window === 'undefined') return [] as T[];\n  const data = localStorage.getItem(name);\n  if (data) {\n     return JSON.parse(data) as T[];\n  } else {\n     localStorage.setItem(name, JSON.stringify([]));\n     return [] as T[];\n  }\n};
