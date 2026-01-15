@@ -1,1 +1,39 @@
-"use client"\nimport { useEffect, useState } from 'react';\nimport CountUp from 'react-countup';\nimport { InView } from 'react-intersection-observer';\n\ninterface CountType {\n  number: number;\n}\n\nconst Count = ({ number }: CountType) => {\n  const [focus, setFocus] = useState<boolean>(false);\n  const [hasCounted, setHasCounted] = useState<boolean | null>(null);\n\n  useEffect(() => {\n    if (typeof window !== 'undefined') {\n      const prev = localStorage.getItem('hasCountedBefore');\n      if (!prev) {\n        setFocus(true);\n        localStorage.setItem('hasCountedBefore', 'true');\n        setHasCounted(true);\n      } else {\n        setHasCounted(true);\n      }\n    }\n  }, []);\n\n  return (\n    <div>\n      <CountUp start={0} end={focus ? number : 0} duration={2} decimals={number % 1 !== 0 ? 1 : 0}>\n        {({ countUpRef }) => (\n          <span ref={countUpRef} />\n        )}\n      </CountUp>\n    </div>\n  );\n};\n\nexport default Count;
+"use client"
+
+import { useEffect, useState } from 'react';
+import CountUp from 'react-countup';
+import { InView } from 'react-intersection-observer';
+
+interface CountType {
+  number: number;
+}
+
+const Count = ({ number }: CountType) => {
+  const [focus, setFocus] = useState<boolean>(false);
+  const [hasCounted, setHasCounted] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const prev = localStorage.getItem('hasCountedBefore');
+      if (!prev) {
+        setFocus(true);
+        localStorage.setItem('hasCountedBefore', 'true');
+        setHasCounted(true);
+      } else {
+        setHasCounted(true);
+      }
+    }
+  }, []);
+
+  return (
+    <div>
+      <CountUp start={0} end={focus ? number : 0} duration={2} decimals={number % 1 !== 0 ? 1 : 0}>
+        {({ countUpRef }) => (
+          <span ref={countUpRef} />
+        )}
+      </CountUp>
+    </div>
+  );
+};
+
+export default Count;
