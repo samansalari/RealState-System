@@ -29,6 +29,6 @@ jobs:
         working-directory: ./real-estate-backend
         run: |
           npm run build || true
-      - name: Lint (optional)
+      - name: Create Railway deployments (stub)
         run: |
-          echo "No lint configured"
+          echo "Railway deployment would be triggered here in CI if configured."

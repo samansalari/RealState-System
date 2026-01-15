@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Deployment Script for Hozn Real Estate Application
+# Deployment Script for Beatnova Real Estate Application
 # This script helps prepare and deploy the application
 
 echo "🚀 Starting deployment preparation..."

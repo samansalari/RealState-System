@@ -1,1 +1,1 @@
-{ "name": "real-estate-frontend", "version": "1.0.0", "private": true, "scripts": { "start": "next start", "dev": "next dev", "build": "next build" }, "dependencies": { "next": "14.0.4", "react": "18.x", "react-dom": "18.x" } }
+{ "name": "beatnova-frontend", "version": "1.0.0", "private": true, "scripts": { "start": "next start", "dev": "next dev", "build": "next build" }, "dependencies": { "next": "14.0.4", "react": "18.x", "react-dom": "18.x" } }
